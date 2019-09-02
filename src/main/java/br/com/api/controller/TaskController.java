@@ -19,14 +19,14 @@ public class TaskController {
 	private TaskService service;
 	
 	@GetMapping(value = { "/getAll", "/getAll/", "/get-all/", "/get-all", "" })
-	// retorna as flags true or false
-	public ResponseEntity<?> getAll() {// inicio metodo
+
+	public ResponseEntity<?> getAll() {
 		try {// inicio try
-			return ResponseEntity.ok(service.findAll()); // retur
+			return ResponseEntity.ok(service.findAll()); 
 		} // fim try
-		catch (Exception e) { // init catch
-			return new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);// return erro
-		} // fim cacth
-	}// fim do metodo
+		catch (Exception e) { 
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+			} 
+	}
 	
 }
