@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.data.domain.Sort;
-import br.com.api.model.Task;
+
+import br.com.api.dto.Task;
 import br.com.api.repository.TaskRepository;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Collation;

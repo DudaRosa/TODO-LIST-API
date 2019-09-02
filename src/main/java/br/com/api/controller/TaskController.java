@@ -11,15 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.api.service.TaskService;
 
 @RestController
-@CrossOrigin
 @RequestMapping("/task")
 public class TaskController {
 
 	@Autowired
 	private TaskService service;
 	
-	@GetMapping(value = { "/getAll", "/getAll/", "/get-all/", "/get-all", "" })
-
+	@GetMapping(path = { "/getAll" })
 	public ResponseEntity<?> getAll() {
 		try {// inicio try
 			return ResponseEntity.ok(service.findAll()); 

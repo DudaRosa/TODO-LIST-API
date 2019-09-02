@@ -1,4 +1,4 @@
-package br.com.api.model;
+package br.com.api.dto;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
