@@ -39,7 +39,7 @@ public class TaskService {
 	
 	public Task save(Task entity) {
 		entity.setId(null);
-		return taskRepository.save(entity);
+		return mongoTemplate.save(entity);
 	}
 	
 	public Optional<Task> findById(String id) {
