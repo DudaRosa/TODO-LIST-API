@@ -3,34 +3,20 @@ package br.com.api.config;
 
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @SpringBootApplication
 @Configuration
+@ComponentScan(basePackages="br.com.api")
 public class ApplicationConfig {
 
-	@Bean
-	// confgire mvc
-	public WebMvcConfigurer corsConfigurer() { // inicio metodo
-		// instance WebMvcConfigure
-		return new WebMvcConfigurerAdapter() {
-			@Override
-			// add cors
-			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**");
-				registry.addMapping("/api**");
-				registry.addMapping("/api/**");
-			}// fim add cors
-		};
-	}// fim do metodo
-
 	public static void main(String[] args) { // inicio metodo
-		
+		System.setProperty("server.servlet.context-path", "/api");
+		System.setProperty("server.servlet.contextPath", "/api");
+		System.setProperty("server.contextPath", "/api");
 
 		System.setProperty("management.endpoints.web.exposure.include", "*");
 		System.setProperty("server.compression.enabled", "true");

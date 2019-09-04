@@ -15,8 +15,6 @@ import org.springframework.data.mongodb.core.query.Collation;
 @Component
 public class TaskService {
 
-	@Autowired
-	private TaskRepository repository; 
 	
 	@Autowired
 	private MongoTemplate mongoTemplate;

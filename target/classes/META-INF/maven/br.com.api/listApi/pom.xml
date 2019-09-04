@@ -56,9 +56,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 		</dependency>       
 	</dependencies>
 
-
 <build>
-		<finalName>epert-api</finalName>
 		<plugins>
 			<plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -77,4 +75,5 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
             </plugin>
 		</plugins>
 	</build>
+
 </project>
