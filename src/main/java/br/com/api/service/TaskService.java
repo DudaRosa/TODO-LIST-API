@@ -4,21 +4,20 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.stereotype.Component;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Collation;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.stereotype.Service;
 
 import br.com.api.dto.Task;
 import br.com.api.repository.TaskRepository;
-import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.data.mongodb.core.query.Collation;
-import org.springframework.data.mongodb.core.query.Criteria;
 
-@Component
+@Service
 public class TaskService {
 	
-	@Autowired
-	private TaskRepository repository; 
+	@Autowired(required=false)
+	private TaskRepository taskRepository; 
 	
 	@Autowired
 	private MongoTemplate mongoTemplate;
@@ -40,17 +39,17 @@ public class TaskService {
 	
 	public Task save(Task entity) {
 		entity.setId(null);
-		return repository.save(entity);
+		return taskRepository.save(entity);
 	}
 	
 	public Optional<Task> findById(String id) {
-		return repository.findById(id);
+		return taskRepository.findById(id);
 	}
 	
 	public boolean deleteById(String id) {
 		
 		if(id != null) {
-			repository.deleteById(id);
+			taskRepository.deleteById(id);
 			return true;
 		}
 		return false;
@@ -65,6 +64,6 @@ public class TaskService {
 		if(entity.getStatus() != null)
 			atualizada.get().setStatus(entity.getStatus());
 		
-		return repository.save(atualizada.get());
+		return taskRepository.save(atualizada.get());
 	}
 }
