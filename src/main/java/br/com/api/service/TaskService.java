@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.query.Collation;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.NotAcceptableStatusException;
 
 import br.com.api.dto.Task;
 
@@ -34,8 +35,13 @@ public class TaskService {
 	}
 	
 	public Task save(Task entity) {
+		
 		entity.setId(null);
-		return mongoTemplate.save(entity);
+		
+			return mongoTemplate.save(entity);	
+	
+		// status (pending or completed)
+	
 	}
 	
 	public Task findById(String id) {

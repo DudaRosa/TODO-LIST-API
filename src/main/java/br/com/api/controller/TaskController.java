@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.NotAcceptableStatusException;
 
 import br.com.api.dto.Task;
 import br.com.api.service.TaskService;
@@ -39,9 +40,17 @@ public class TaskController {
 	@PostMapping()
 	public ResponseEntity<?> save(HttpServletRequest request,@RequestBody Task dto){
 		try {
-			
-			Task responseEntity = service.save(dto);
-			return ResponseEntity.ok(responseEntity);
+			if(dto.getStatus() != null && !dto.getStatus().isEmpty()) {
+				
+					Task responseEntity = service.save(dto);
+					return ResponseEntity.ok(responseEntity);	
+			}
+			else {
+				return new ResponseEntity<String>("Campo status é obrigatorio", HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+		}
+		catch (NotAcceptableStatusException e) {// inicio catch
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR); // retunr erro
 		}
 		catch (Exception e) {
 			return new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
