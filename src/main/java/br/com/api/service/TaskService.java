@@ -7,17 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Collation;
+import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import br.com.api.dto.Task;
-import br.com.api.repository.TaskRepository;
 
 @Service
 public class TaskService {
-	
-	@Autowired(required=false)
-	private TaskRepository taskRepository; 
 	
 	@Autowired
 	private MongoTemplate mongoTemplate;
@@ -42,28 +39,28 @@ public class TaskService {
 		return mongoTemplate.save(entity);
 	}
 	
-	public Optional<Task> findById(String id) {
-		return taskRepository.findById(id);
+	public Task findById(String id) {
+		return mongoTemplate.findById(id, Task.class);
 	}
 	
 	public boolean deleteById(String id) {
-		
+	
 		if(id != null) {
-			taskRepository.deleteById(id);
+			mongoTemplate.remove(new Query(Criteria.where("_id").is(id)), Task.class);
 			return true;
 		}
 		return false;
 	}
 	
 	public Task updateTask(String id, Task entity) {
-		Optional<Task> atualizada = this.findById(id);
+		Task task = this.findById(id);
 		
 		if(entity.getName() != null)
-			atualizada.get().setName(entity.getName());
+			task.setName(entity.getName());
 		
 		if(entity.getStatus() != null)
-			atualizada.get().setStatus(entity.getStatus());
+			task.setStatus(entity.getStatus());
 		
-		return taskRepository.save(atualizada.get());
+		return mongoTemplate.save(task);
 	}
 }

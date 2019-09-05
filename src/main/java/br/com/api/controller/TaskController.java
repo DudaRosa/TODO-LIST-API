@@ -51,9 +51,9 @@ public class TaskController {
 	@GetMapping(value = { "/{id}", "/{id}/" })
 	public ResponseEntity<?> getById(@PathVariable("id") String id){
 		try {
-			Optional<Task> task = service.findById(id);
-			if(task.isPresent()) {
-			return ResponseEntity.ok(task.get());
+			Task task = service.findById(id);
+			if(task != null) {
+			return ResponseEntity.ok(task);
 			}
 			else {
 				return new ResponseEntity<String>("Id not found", HttpStatus.NOT_FOUND);
@@ -67,7 +67,7 @@ public class TaskController {
 	public ResponseEntity<?> deleteById(HttpServletRequest request, @PathVariable("id") String id){
 		try {
 		
-			Optional<Task> responseEntity = service.findById(id);
+			Task responseEntity = service.findById(id);
 
 			if(service.deleteById(id)) {
 				return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
