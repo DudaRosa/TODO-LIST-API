@@ -10,8 +10,8 @@ APIs utilizadas:
 - POST:
    - API: http://localhost:8080/api/task
    - Para inserir, deve conter o campo name e status
-   OBS: Não colocar o id, pois é gerado automático.
-   EX:
+   - OBS: Não colocar o id, pois é gerado automático.
+   - EX:
       {
         "name": "Boletos",
         "status": "completed"
@@ -19,8 +19,8 @@ APIs utilizadas:
       
 - PUT:  
    - API: http://localhost:8080/api/task/{{colocar o id da tarefa}}
-   OBS: Colocar o id.
-   EX:
+   - OBS: Colocar o id.
+   - EX:
        {
         "id": "5d7120d979850e39a8667b1d",
         "name": " Teste Boletos",
@@ -29,7 +29,7 @@ APIs utilizadas:
 - DELETE: 
    - API: http://localhost:8080/api/task/{{colocar o id da tarefa}}
    - Api só precisa do id para excluir no Banco.
-   EX:
+   - EX:
    http://localhost:8080/api/task/5d7120d979850e39a8667b1d
 
 - GET: 
@@ -37,7 +37,7 @@ APIs utilizadas:
       - API: http://localhost:8080/api/task/getAll
       - Irá retornar uma lista de Tarefas. 
       
-      Ex: 
+      - Ex: 
       [
          {
            "id": "5d7120d979850e39a8667b1d",
@@ -60,7 +60,7 @@ APIs utilizadas:
       - API: http://localhost:8080/api/task/{{colocar o id da tarefa}}
       - Retorna apenas as informações do Id informado.
       
-      Ex: http://localhost:8080/api/task/5d7120d979850e39a8667b1d
+      - Ex: http://localhost:8080/api/task/5d7120d979850e39a8667b1d
        Retorno: 
        {
           "id": "5d7120d979850e39a8667b1d",
