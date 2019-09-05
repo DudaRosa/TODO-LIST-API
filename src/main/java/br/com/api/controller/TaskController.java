@@ -67,13 +67,11 @@ public class TaskController {
 	public ResponseEntity<?> deleteById(HttpServletRequest request, @PathVariable("id") String id){
 		try {
 		
-			Task responseEntity = service.findById(id);
-
 			if(service.deleteById(id)) {
 				return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 			}
 			else {
-				return new ResponseEntity<String>("This axis can not be deleted", HttpStatus.BAD_REQUEST);
+				return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
 			}
 		} catch (Exception e) {
 			return new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);

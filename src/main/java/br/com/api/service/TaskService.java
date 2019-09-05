@@ -29,8 +29,7 @@ public class TaskService {
 		query.collation(Collation.of("en").strength(Collation.ComparisonLevel.secondary()));
 		
 		List<Task> listTask = mongoTemplate.find(query,Task.class);
-		
-		
+			
 		return listTask;
 	}
 	
