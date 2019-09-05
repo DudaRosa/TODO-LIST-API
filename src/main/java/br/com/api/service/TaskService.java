@@ -60,12 +60,13 @@ public class TaskService {
 	public Task updateTask(String id, Task entity) {
 		Task task = this.findById(id);
 		
-		if(entity.getName() != null)
+		if(entity.getName() != null) {
 			task.setName(entity.getName());
+		}
 		
-		if(entity.getStatus() != null)
+		if(entity.getStatus() != null) {
 			task.setStatus(entity.getStatus());
-		
+		}
 		return mongoTemplate.save(task);
 	}
 }
