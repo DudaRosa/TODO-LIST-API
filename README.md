@@ -17,8 +17,12 @@ Deploy Local pelo Eclipse
       - Instalar o MongoBD
       - Executar o servidor local, o localhost é o 127.0.0.1 e a porta 27017.
       - O projeto já está configurado com o localhost e o nome do banco.  
+      - Configuração:
+            - MONGODB_HOST:127.0.0.1
+            - MONGODB_PORT:27017
+            - MONGODB_DATABASE:list-api-itau
 
-Deploy pelo .war
+Deploy Local pelo .war
   - Foi gerado um arquivo .was para rodar a aplicação, basta Starta o Tomcat ou Glassfish e rodar pelo localhost:8080
   
 APIs utilizadas:
