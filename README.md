@@ -19,7 +19,7 @@ Deploy Local pelo Eclipse
             - MONGODB_DATABASE:list-api-itau
 
 Deploy Local pelo .war
-  - Foi gerado um arquivo .was para rodar a aplicação, basta executar o Tomcat ou Glassfish e rodar pelo localhost:8080
+  - Foi gerado um arquivo .was para rodar a aplicação, basta realizar o deploy no Tomcat ou Glassfish.
   
 APIs utilizadas:Testes realizado pelo Postman 
 - POST:
