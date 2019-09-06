@@ -53,7 +53,7 @@ APIs utilizadas:
 
 - GET: 
   - Get ALL:
-      - API: http://localhost:8080/api/task/getAll
+      - API: http://localhost:8080/todo/task/getAll
       - Irá retornar uma lista de Tarefas. 
       
       - Ex: 
