@@ -6,7 +6,7 @@ MongoDB: Banco de dados utilizado.
 Postman: Ferramenta para executar a API.
 
 Deploy Local pelo Eclipse
-   - Para realizar o deploy local, é necessario ter instalado o Eclipse e MongoDB.
+   - Para realizar o deploy local, é necessário ter instalado o Eclipse e MongoDB.
    - Eclipse:
       - Baixar o Projeto TODO-LIST-API
       - Configurar o Eclipse com o Maven.
